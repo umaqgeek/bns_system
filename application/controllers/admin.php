@@ -138,11 +138,13 @@ class Admin extends MY_Controller
                     $crud->where('ut_id', 2);
                     
                     $crud->set_relation_n_n('bu_plat', 'driver', 'bus', 'u_id', 'bu_id', 'bu_plat', 'dr_id');
+//                    $crud->set_relation_n_n('lo_name', 'driver', 'location', 'u_id', 'lo_id', 'lo_name', 'dr_id');
                     $crud->columns('u_fullname', 'bu_plat');
                     $crud->fields('u_fullname', 'bu_plat');
                     
                     $crud->display_as('u_fullname', 'Driver Fullname')
                             ->display_as('bu_plat', 'Bus Plat');
+//                            ->display_as('lo_name', 'Destination');
                     
                     $crud->unset_add();
                     

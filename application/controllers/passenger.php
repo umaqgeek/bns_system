@@ -26,7 +26,11 @@ class Passenger extends MY_Controller
 //            $data['driver_location'] = $this->m_driver_location->getAll();
 //            echo $this->viewpage('ajax/v_get_list', $data);
             $data['driver'] = $this->m_driver->getAll();
+            $data['driver2'] = $this->m_driver->getAll();
             $data['location'] = $this->m_location->getAll();
+            if ($this->input->post('platno')) {
+                $data['platno'] = $this->input->post('platno');
+            }
             echo $this->viewpage('ajax/v_get_map', $data);
         }
         

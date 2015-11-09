@@ -9,10 +9,13 @@
 
 <script>
     function runGetList() {
-        $.post("<?= site_url('passenger/getList1'); ?>", {}).done(function (data) {
+        var platno = "<?=(isset($_GET['platno']))?($_GET['platno']):('-'); ?>";
+        $.post("<?= site_url('passenger/getList1'); ?>", {
+            platno: platno
+        }).done(function (data) {
             $("#list1").html(data);
         });
-        setTimeout('runGetList()', 20000);
+        //setTimeout('runGetList()', 20000);
     }
     $(document).ready(function () {
         runGetList();
